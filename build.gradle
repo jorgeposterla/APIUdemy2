@@ -1,4 +1,5 @@
 plugins {
+    id 'groovy'
     id 'java'
 }
 
@@ -13,15 +14,19 @@ repositories {
 dependencies {
     // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
-    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.3'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
-    testImplementation 'io.cucumber:cucumber-junit:6.10.3'
-    // https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber6-adapter
-    implementation group: 'tech.grasshopper', name: 'extentreports-cucumber6-adapter', version: '2.8.1'
-    // https://mvnrepository.com/artifact/org.json/json
-    implementation group: 'org.json', name: 'json', version: '20180813'
-    // no se de donde sacó esto
-    testImplementation(platform('org.junit:junit-bom:5.7.1'))
-    testImplementation('org.junit.jupiter:junit-jupiter')
+    // https://mvnrepository.com/artifact/org.codehaus.groovy/groovy
+    implementation 'org.codehaus.groovy:groovy:3.0.9'
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+    // https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
+    implementation 'io.rest-assured:json-schema-validator:4.4.0'
+}
+
+test {
+    useTestNG(){
+        testLogging.showStandardStreams = true
+        useDefaultListeners = true
+        reports.html.enabled = false
+        parallel = "tests"
+    }
 }
