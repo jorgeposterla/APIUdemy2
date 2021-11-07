@@ -28,5 +28,6 @@ test {
         useDefaultListeners = true
         reports.html.enabled = false
         parallel = "tests"
+        includeGroups 'smoke'
     }
 }

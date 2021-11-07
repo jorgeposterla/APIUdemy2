@@ -1,77 +1,93 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "success": {
-        "type": "boolean"
-      },
-      "data": {
-        "type": "array",
-        "items": [
-          {
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome",
+    "definitions": {
+        "Welcome": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
-              "_id": {
-                "type": "string"
-              },
-              "backgroundImage": {
-                "type": "string"
-              },
-              "author": {
-                "type": "string"
-              },
-              "category": {
-                "type": "string"
-              },
-              "language": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "pdf": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "createdAt": {
-                "type": "string"
-              },
-              "updatedAt": {
-                "type": "string"
-              },
-              "book_id": {
-                "type": "integer"
-              },
-              "__v": {
-                "type": "integer"
-              }
+                "success": {
+                    "type": "boolean"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Datum"
+                    }
+                }
             },
             "required": [
-              "_id",
-              "backgroundImage",
-              "author",
-              "category",
-              "language",
-              "url",
-              "title",
-              "pdf",
-              "body",
-              "createdAt",
-              "updatedAt",
-              "book_id",
-              "__v"
-            ]
-          }
-        ]
-      }
-    },
-    "required": [
-      "success",
-      "data"
-    ]
-  }
+                "data",
+                "success"
+            ],
+            "title": "Welcome"
+        },
+        "Datum": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "backgroundImage": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg"
+                    ]
+                },
+                "author": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "title": {
+                    "type": "string"
+                },
+                "pdf": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http"
+                    ],
+                    "qt-uri-extensions": [
+                        ".pdf"
+                    ]
+                },
+                "body": {
+                    "type": "string"
+                },
+                "book_id": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_id",
+                "author",
+                "backgroundImage",
+                "body",
+                "book_id",
+                "category",
+                "language",
+                "pdf",
+                "title",
+                "url"
+            ],
+            "title": "Datum"
+        }
+    }
+}

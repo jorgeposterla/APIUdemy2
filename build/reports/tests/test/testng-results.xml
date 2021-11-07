@@ -1,77 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
+<testng-results ignored="1" total="4" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-05T21:36:23 ART" name="Gradle suite" finished-at="2021-11-05T21:36:27 ART" duration-ms="4332">
+  <suite started-at="2021-11-06T21:30:55 ART" name="Gradle suite" finished-at="2021-11-06T21:31:00 ART" duration-ms="4525">
     <groups>
+      <group name="smoke">
+        <method signature="Books.createAndDeletebook()[pri:0, instance:Books@36f48b4]" name="createAndDeletebook" class="Books"/>
+        <method signature="Books.deleteNonExistentBook_FailMessage()[pri:0, instance:Books@36f48b4]" name="deleteNonExistentBook_FailMessage" class="Books"/>
+        <method signature="Books.getBooksList()[pri:0, instance:Books@36f48b4]" name="getBooksList" class="Books"/>
+      </group> <!-- smoke -->
     </groups>
-    <test started-at="2021-11-05T21:36:23 ART" name="Gradle test" finished-at="2021-11-05T21:36:27 ART" duration-ms="4332">
+    <test started-at="2021-11-06T21:30:55 ART" name="Gradle test" finished-at="2021-11-06T21:31:00 ART" duration-ms="4525">
       <class name="Books">
-        <test-method is-config="true" signature="setupRestAssured()[pri:0, instance:Books@6aecbb8d]" started-at="2021-11-05T21:36:23 ART" name="setupRestAssured" finished-at="2021-11-05T21:36:24 ART" duration-ms="634" status="PASS">
+        <test-method is-config="true" signature="setupRestAssured()[pri:0, instance:Books@36f48b4]" started-at="2021-11-06T21:30:55 ART" name="setupRestAssured" finished-at="2021-11-06T21:30:56 ART" duration-ms="642" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupRestAssured -->
-        <test-method signature="booksSchemaIsValid()[pri:0, instance:Books@6aecbb8d]" started-at="2021-11-05T21:36:24 ART" name="booksSchemaIsValid" finished-at="2021-11-05T21:36:24 ART" duration-ms="13" status="FAIL">
-          <exception class="groovy.lang.GroovyRuntimeException">
-            <message>
-              <![CDATA[Ambiguous method overloading for method java.io.File#<init>.
-Cannot resolve which method to invoke for [null] due to overlapping prototypes between:
-[class java.net.URI]
-[class java.lang.String]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[groovy.lang.GroovyRuntimeException: Ambiguous method overloading for method java.io.File#<init>.
-Cannot resolve which method to invoke for [null] due to overlapping prototypes between:
-[class java.net.URI]
-[class java.lang.String]
-at groovy.lang.MetaClassImpl.doChooseMostSpecificParams(MetaClassImpl.java:3354)
-at groovy.lang.MetaClassImpl.chooseMostSpecificParams(MetaClassImpl.java:3330)
-at groovy.lang.MetaClassImpl.chooseMethodInternal(MetaClassImpl.java:3320)
-at groovy.lang.MetaClassImpl.chooseMethod(MetaClassImpl.java:3264)
-at groovy.lang.MetaClassImpl.createConstructorSite(MetaClassImpl.java:3566)
-at org.codehaus.groovy.runtime.callsite.CallSiteArray.createCallConstructorSite(CallSiteArray.java:85)
-at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
-at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
-at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
-at Books.booksSchemaIsValid(Books.groovy:20)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-at java.base/java.lang.Thread.run(Thread.java:829)
-]]>
-            </full-stacktrace>
-          </exception> <!-- groovy.lang.GroovyRuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- booksSchemaIsValid -->
-        <test-method signature="createAndDeletebook()[pri:0, instance:Books@6aecbb8d]" started-at="2021-11-05T21:36:24 ART" name="createAndDeletebook" finished-at="2021-11-05T21:36:26 ART" duration-ms="2391" status="PASS">
+        <test-method signature="createAndDeletebook()[pri:0, instance:Books@36f48b4]" started-at="2021-11-06T21:30:56 ART" name="createAndDeletebook" finished-at="2021-11-06T21:30:59 ART" duration-ms="2569" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createAndDeletebook -->
-        <test-method signature="deleteNonExistentBook_FailMessage()[pri:0, instance:Books@6aecbb8d]" started-at="2021-11-05T21:36:26 ART" name="deleteNonExistentBook_FailMessage" finished-at="2021-11-05T21:36:27 ART" duration-ms="393" status="PASS">
+        <test-method signature="deleteNonExistentBook_FailMessage()[pri:0, instance:Books@36f48b4]" started-at="2021-11-06T21:30:59 ART" name="deleteNonExistentBook_FailMessage" finished-at="2021-11-06T21:30:59 ART" duration-ms="391" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteNonExistentBook_FailMessage -->
-        <test-method signature="getBooksList()[pri:0, instance:Books@6aecbb8d]" started-at="2021-11-05T21:36:27 ART" name="getBooksList" finished-at="2021-11-05T21:36:27 ART" duration-ms="867" status="PASS">
+        <test-method signature="getBooksList()[pri:0, instance:Books@36f48b4]" started-at="2021-11-06T21:30:59 ART" name="getBooksList" finished-at="2021-11-06T21:31:00 ART" duration-ms="858" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getBooksList -->

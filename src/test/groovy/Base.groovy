@@ -3,13 +3,14 @@ import io.restassured.builder.RequestSpecBuilder
 import io.restassured.http.ContentType
 import io.restassured.specification.RequestSpecification
 import org.testng.annotations.BeforeClass
+import org.testng.annotations.Test
 
 class Base {
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public static void setupRestAssured(){
 
         RestAssured.baseURI = "http://qa-library-dev.herokuapp.com";
-        RestAssured.basePath = "/api/";
+        RestAssured.basePath = "/api";
         RequestSpecification requestSpecification = new RequestSpecBuilder()
         .addHeader("Content-Type", ContentType.JSON.toString())
         .addHeader("Accept", ContentType.JSON.toString())

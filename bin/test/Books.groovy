@@ -3,11 +3,11 @@ import org.testng.Assert
 import io.restassured.response.Response
 
 import static io.restassured.RestAssured.*
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaClassPath
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaClasspath
 
 class Books extends Base {
 
-    @Test
+    @Test(groups = "smoke")
     void getBooksList(){
         Response response = get("/books")
 
@@ -17,14 +17,13 @@ class Books extends Base {
 
     @Test
     void booksSchemaIsValid(){
-        File schema = new File(System.getProperty("bookSchema.json"))
         get("/books")
         .then()
         .assertThat()
-        .body(matchesJsonSchemaInClasspath(schema))
+        .body(matchesJsonSchemaClasspath("booksSchema.json"))
     }
 
-    @Test
+    @Test(groups = "smoke")
     void createAndDeletebook(){
         File bookFile = new File(getClass().getResource("/book.json").toURI())
 
@@ -50,7 +49,7 @@ class Books extends Base {
         Assert.assertEquals(deleteResponse.jsonPath().getString("message"), "Book successfully deleted")
     }
 
-    @Test
+    @Test(groups = "smoke")
     void deleteNonExistentBook_FailMessage(){
         String nonExistentBookID = "456123"
 
